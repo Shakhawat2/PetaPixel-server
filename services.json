@@ -1,0 +1,82 @@
+[
+    {
+        "service_id" : 1,
+        "service_name" : "Fashion photographer",
+        "service_photo" : "https://i.ibb.co/Kbnp0Y3/Fashion-Photographer.jpg",
+        "price" : "300",
+        "rating" : 4.3,
+        "description" : "Fashion photography is a genre of photography which is devoted to displaying clothing and other fashion items. Fashion photography is most often conducted for advertisements or fashion magazines such as Vogue, Vanity Fair, or Elle"
+    },
+    {
+        "service_id" : 2,
+        "service_name" : "Sports photographer",
+        "service_photo" : "https://i.ibb.co/VCsZZg8/sport-photographer.jpg",
+        "price" : "450",
+        "rating" : 4.5,
+        "description" : "Sports photography refers to the genre of photography that covers all types of sports. In the majority of cases, professional sports photography is a branch of photojournalism, while amateur sports photography, such as photos of children playing association football, is a branch of vernacular photography."        
+    },
+    {
+        "service_id" : 3,
+        "service_name" : "Architecture photographer",
+        "service_photo" : "https://i.ibb.co/DrHS4K8/architectural-photography.jpg",
+        "price" : 500,
+        "rating" : 4.5,
+        "description" : "Architectural photography is the sub genre of the photography discipline where the primary emphasis is made to capturing photographs of buildings and similar architectural structures that are both aesthetically pleasing and accurate in terms of representations of their subjects. "        
+    },
+    {
+        "service_id" : 4,
+        "service_name" : "Real Estate photographer",
+        "service_photo" : "https://i.ibb.co/YTnq5qC/Real-state-Photograpy.jpg",
+        "price" : 600,
+        "rating" : 4.5,
+        "description" : "A real estate photographer is an artistic professional who takes favorable photos of commercial and residential property. They work with realtors who use the photos to sell properties online. Real estate photographers may also take photographs for model home builders, designers, home decorators or architects"      
+    },
+    {
+        "service_id" : 5,
+        "service_name" : "Medical photographer",
+        "service_photo" : "https://i.ibb.co/7NPfq9C/medical-photograpy.jpg",
+        "price" : 500,
+        "rating" : 4.3,
+        "description" : "As a clinical photographer, you'll provide different types of images to assist with diagnosing and treating patients. This can include specialised imagery such as thermography, 3D and ultra violet imaging as well as standard digital photography. Some clinical photographers also undertake videography."     
+    },
+    {
+        "service_id" : 6,
+        "service_name" : "Food photographer",
+        "service_photo" : "https://i.ibb.co/DMbS1FQ/Food-photo.jpg",
+        "price" : 450,
+        "rating" : 4.5,
+        "description" : "A food photographer creates enticing images of meals and specific dishes for usage in online or print media materials. As a food photographer, your primary duties include taking photos of food during a photoshoot and then editing digital images to obtain the right look for the brand or publication."        
+    },
+    {
+        "service_id" : 7,
+        "service_name" : "Vehicle photographer",
+        "service_photo" : "https://i.ibb.co/87GKJn1/Vehicle-photo.jpg",
+        "price" : 700,
+        "rating" : 4.5,
+        "description" : "The vehicle photographer is responsible for photographing new and used inventory. This is a full-time photographer position. Duties and Responsibilities: Take photographs of inventory in a timely fashion."
+    },
+    {
+        "service_id" : 8,
+        "service_name" : "Advertising photographer",
+        "service_photo" : "https://i.ibb.co/N38kcV2/advertising-photo.jpg",
+        "price" : 650,
+        "rating" : 4.3,
+        "description" : "What Is an Advertising Photographer? As an advertising photographer, you'll take pictures of various subjects for promotional materials. Your work may end up on billboards or product packaging or in television commercials or magazine ads. You'll work with film or digital media and must be skilled in processing both."
+    },
+    {
+        "service_id" : 9,
+        "service_name" : "Landscape photographer",
+        "service_photo" : "https://i.ibb.co/dgVM0SJ/landscape.jpg",
+        "price" : 700,
+        "rating" : 4.4,
+        "description" : "A landscape photographer takes photos of nature with a particular focus on landscapes. You use a camera to capture a natural scene or an image of the world around you. You work on location, so depending on the images and the landscape, you may be required to travel."
+    },
+    {
+        "service_id" : 10,
+        "service_name" : "Underwater photographer",
+        "service_photo" : "https://i.ibb.co/yYcTGWG/under-Water.jpg",
+        "price" : 500,
+        "rating" : 4.5,
+        "description" : "An Underwater Photographer dives into the depths to explore and capture the natural sea life and ecosystems by still life photo or documentary style videos. These can be used for numerous applications from magazines and promotions to scientific research."
+    }
+]
