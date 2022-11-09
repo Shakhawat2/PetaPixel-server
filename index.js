@@ -46,6 +46,13 @@ async function run(){
             const query = {_id : ObjectId(id)};
             const service = await allServices.findOne(query);
             res.send(service);            
+        });
+        //
+        app.get('/myreview', async(req, res) =>{
+            const currentEmail = req.query.email;
+            const query = {email : currentEmail};
+            const reviews = await allReviews.find(query).toArray();
+            res.send(reviews);
         })
         //Post service to mongodb
         app.post("/services", async(req, res) =>{
