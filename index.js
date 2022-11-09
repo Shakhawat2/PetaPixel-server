@@ -34,7 +34,12 @@ async function run(){
             res.send({services, count});
         })
         //get Review 
-
+        app.get("/review", async(req, res) =>{
+            const id = req.query.id;
+            const query = {review_id : id};
+            const reviews = await allReviews.find(query).toArray();
+            res.send(reviews);
+        })
         //get single service
         app.get("/services/:id", async(req, res) =>{
             const id = req.params.id;
@@ -52,6 +57,7 @@ async function run(){
         app.post("/review", async(req, res) =>{
             const service = req.body;
             const result = await allReviews.insertOne(service);
+
             res.send(result);
         });
 
