@@ -37,7 +37,12 @@ async function run() {
         app.get("/review", async (req, res) => {
             const id = req.query.id;
             const query = { review_id: id };
-            const reviews = await allReviews.find(query).toArray();
+            const options = {
+                // sort matched documents in descending order by rating
+                sort: { minutes : -1, hours : -1 },
+                
+            };
+            const reviews = await allReviews.find(query, options).toArray();
             res.send(reviews);
         })
         //get single service
