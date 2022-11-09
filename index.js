@@ -26,9 +26,12 @@ async function run(){
         })
         //get all services
         app.get("/services", async(req, res) =>{
+            const page = parseInt(req.query.page);
+            const size = parseInt(req.query.size);
             const query = {};
-            const services = await allServices.find(query).toArray();
-            res.send(services);
+            const services = await allServices.find(query).skip(page * size).limit(size).toArray();
+            const count = await allServices.estimatedDocumentCount();
+            res.send({services, count});
         })
         //get single service
         app.get("/services/:id", async(req, res) =>{
@@ -37,11 +40,10 @@ async function run(){
             const service = await allServices.findOne(query);
             res.send(service);            
         })
-        //Post service
+        //Post service to mongodb
         app.post("/services", async(req, res) =>{
             const service = req.body;
             const result = await allServices.insertOne(service);
-            console.log(result);
             res.send(result);
         })
     }finally{
