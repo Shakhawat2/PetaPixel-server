@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const jwt = require('jsonwebtoken')
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 require("dotenv").config();
 const app = express();
@@ -14,10 +15,34 @@ app.use(express.json());
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.nm2ezgo.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
+function verifyJwt(req, res, next){
+    const authHeader = req.headers.authorization
+
+    if(!authHeader){
+        return res.status(401).send({message : 'unauthorized access'})
+    }
+    const token = authHeader.split(' ')[1]
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECURE, function(err, decoded){
+        if(err){
+           return res.status(401).send({message : 'unauthorized access'})
+        }
+        req.decoded = decoded;
+        next();
+    })
+
+}
+
 async function run() {
     try {
         const allServices = client.db("assignment11").collection("allServices");
         const allReviews = client.db("assignment11").collection("reviews");
+        
+        app.post('/jwt', (req, res) =>{
+            const user = req.body;
+            const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECURE, {expiresIn : '7d'})
+            res.send({token});
+        })
+        
         //get 3 services
         app.get("/3services", async (req, res) => {
             const query = {};
@@ -39,7 +64,7 @@ async function run() {
             const query = { review_id: id };
             const options = {
                 // sort matched documents in descending order by rating
-                sort: { minutes : -1, hours : -1 },
+                sort: { time : -1},
                 
             };
             const reviews = await allReviews.find(query, options).toArray();
@@ -53,7 +78,11 @@ async function run() {
             res.send(service);
         });
         //
-        app.get('/myreview', async (req, res) => {
+        app.get('/myreview', verifyJwt, async (req, res) => {
+            const decoded = req.decoded;
+            if(decoded.email !== req.query.email){
+                res.status(403).send({message : 'Forbidden'})
+            }
             const currentEmail = req.query.email;
             const query = { email: currentEmail };
             const reviews = await allReviews.find(query).toArray();
@@ -91,6 +120,7 @@ async function run() {
                     review_id: Review?.review_id,
                     photo: Review?.photo,
                     name: Review?.name,
+                    time : Review?.time,
                     hours: Review?.hours,
                     minutes: Review?.minutes,
                     review_time: Review?.review_time,
