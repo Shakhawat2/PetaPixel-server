@@ -46,7 +46,8 @@ async function run() {
         //get 3 services
         app.get("/3services", async (req, res) => {
             const query = {};
-            const services = await allServices.find(query).limit(3).toArray();
+            const oldservices = await allServices.find(query).toArray();
+            const services = oldservices.reverse().slice(0, 3);
             res.send(services);
         })
         //get all services
