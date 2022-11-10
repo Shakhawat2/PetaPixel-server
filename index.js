@@ -77,7 +77,7 @@ async function run() {
             const service = await allServices.findOne(query);
             res.send(service);
         });
-        //
+        //get review
         app.get('/myreview', verifyJwt, async (req, res) => {
             const decoded = req.decoded;
             if(decoded.email !== req.query.email){
